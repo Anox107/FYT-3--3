@@ -1,0 +1,24 @@
+name: Auto FB Messenger Script
+
+on:
+  workflow_dispatch:  # manually trigger karne ke liye
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install requests
+
+      - name: Run Messenger bot
+        run: python main.py
