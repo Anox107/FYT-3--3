@@ -11,4 +11,4 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Run test
-        run: python main.py
+        run: python hannu.py
