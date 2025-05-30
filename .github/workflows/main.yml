@@ -1,14 +1,25 @@
-name: Test GitHub Actions
+name: FB Message Bot
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:  # Manually chalaane ke liye
+  # schedule:
+  #   - cron: '*/15 * * * *'  # Optional: auto run every 15 min
 
 jobs:
-  test-job:
+  run:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Repo
+        uses: actions/checkout@v3
 
-      - name: Run test
-        run: python3 hannu.py
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run Script
+        run: python hannu.py
