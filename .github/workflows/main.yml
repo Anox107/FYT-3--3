@@ -21,4 +21,4 @@ jobs:
           pip install requests
 
       - name: Run Messenger bot
-        run: python main.py
+        run: python hannu.py
